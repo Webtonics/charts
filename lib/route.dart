@@ -26,7 +26,7 @@ class MyRouter extends StatelessWidget {
               spacer,
               const MyButton(title: "Bar Chart", page: MyBarChart()),
               spacer,
-              const MyButton(title: "Pie Chart", page: PieChart()),
+              const MyButton(title: "Pie Chart", page: MyPieChart()),
               spacer,
             ],
           ),

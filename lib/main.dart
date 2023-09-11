@@ -1,4 +1,5 @@
 import 'package:charts/hompage.dart';
+import 'package:charts/onboarding/onboarding_screen.dart';
 import 'package:charts/route.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +26,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MyRouter();
+    return const MyOnboardingScreen();
   }
 }

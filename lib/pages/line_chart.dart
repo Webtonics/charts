@@ -18,15 +18,14 @@ class MyLineChart extends StatelessWidget {
       body: Column(
         children: [
           spacer,
-          AspectRatio(
-            aspectRatio: 1,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(21)),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: 450,
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(21)),
+              child: AspectRatio(
+                aspectRatio: 2,
                 child: LineChart(LineChartData(
                     // rangeAnnotations: RangeAnnotations(),
                     gridData: FlGridData(show: false),
@@ -46,7 +45,9 @@ class MyLineChart extends StatelessWidget {
                             AxisTitles(axisNameWidget: const Text("X Axis")),
                         rightTitles:
                             AxisTitles(axisNameWidget: const Text("Y axis")),
-                        leftTitles: AxisTitles(),
+                        leftTitles: AxisTitles(
+                            drawBehindEverything: true,
+                            axisNameWidget: Text("data")),
                         topTitles: AxisTitles()),
                     lineBarsData: [
                       LineChartBarData(
@@ -64,8 +65,8 @@ class MyLineChart extends StatelessWidget {
                           FlSpot(17, 21),
                         ],
                         belowBarData: BarAreaData(
-                            show: true,
-                            color: Colors.blue,
+                            // show: true,
+                            // color: Colors.blue,
                             spotsLine: BarAreaSpotsLine(show: false)),
                         preventCurveOverShooting: true,
                         isCurved: true,
