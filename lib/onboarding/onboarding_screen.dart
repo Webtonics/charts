@@ -2,6 +2,7 @@ import 'package:charts/onboarding/pageviews/pageview1.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../route.dart';
 import 'pageviews/pageview2.dart';
 import 'pageviews/pageview3.dart';
 import 'pageviews/pageview4.dart';
@@ -14,13 +15,19 @@ class MyOnboardingScreen extends StatefulWidget {
 }
 
 class _MyOnboardingScreenState extends State<MyOnboardingScreen> {
-  PageController _controller = PageController();
+  final PageController _controller = PageController();
+
+  bool onLastPage = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           PageView(
+            onPageChanged: (index) => setState(() {
+              onLastPage = (index == 3);
+            }),
             controller: _controller,
             children: const [
               Pageview1(),
@@ -52,11 +59,18 @@ class _MyOnboardingScreenState extends State<MyOnboardingScreen> {
                   count: 4,
                 ),
                 // next
-                GestureDetector(
-                    onTap: () => _controller.nextPage(
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeIn),
-                    child: const Text("next"))
+                onLastPage
+                    ? GestureDetector(
+                        onTap: () => Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                                builder: (context) => const MyRouter()),
+                            (route) => false),
+                        child: const Text("Done"))
+                    : GestureDetector(
+                        onTap: () => _controller.nextPage(
+                            duration: const Duration(milliseconds: 500),
+                            curve: Curves.easeIn),
+                        child: const Text("next"))
               ],
             ),
           )
