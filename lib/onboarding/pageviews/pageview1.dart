@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+
+import '../../constants/onboading.dart';
 
 class Pageview1 extends StatelessWidget {
   const Pageview1({super.key});
@@ -11,7 +14,26 @@ class Pageview1 extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(top: 80.0),
           child: Column(
-            children: const [Text("Welcome to Charts")],
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Expanded(
+                  flex: 1,
+                  child: Text(
+                    "Welcome to Charts",
+                    style: onboardTextStyle,
+                  )),
+              Expanded(
+                  flex: 1,
+                  child: Text(
+                    "Viewing chart has never been easy",
+                    style: onboardingSubTextStyle,
+                  )),
+              Expanded(
+                flex: 8,
+                child: Center(
+                    child: Lottie.asset('assets/animation_lmflafmr.json')),
+              )
+            ],
           ),
         ),
       ),
