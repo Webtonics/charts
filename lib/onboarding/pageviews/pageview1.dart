@@ -26,6 +26,8 @@ class Pageview1 extends StatelessWidget {
                   flex: 1,
                   child: Text(
                     "Viewing chart has never been easy",
+                    textAlign: TextAlign.center,
+                    softWrap: true,
                     style: onboardingSubTextStyle,
                   )),
               Expanded(

@@ -10,39 +10,58 @@ class Pageview4 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return Scaffold(
+    //   body: Container(
+    //     color: Colors.pink[400],
+    //     child: Center(
+    //       child: Padding(
+    //         padding: const EdgeInsets.only(top: 10.0),
+    //         child: Column(
+    //           // mainAxisAlignment: MainAxisAlignment.center,
+    //           children: [
+    //             Expanded(
+    //                 // flex: 1,
+    //                 child: Text(
+    //               "Start using the app",
+    //               style: onboardTextStyle,
+    //             )),
+
+    //             Expanded(
+    //                 // flex: 2,
+    //                 child: Lottie.asset('assets/animation_lmfm0vui.json')),
+
+    //             // Expanded(
+    //             //   flex: 1,
+    //             //   child: ElevatedButton(
+    //             //       onPressed: () {
+    //             //         Navigator.of(context).pushAndRemoveUntil(
+    //             //             MaterialPageRoute(
+    //             //                 builder: (context) => const MyRouter()),
+    //             //             (route) => false);
+    //             //       },
+    //             //       style: ElevatedButton.styleFrom(
+    //             //           minimumSize: const Size(400, 40)),
+    //             //       child: const Text("Get started")),
+    //             // )
+    //           ],
+    //         ),
+    //       ),
+    //     ),
+    //   ),
+    // );
     return Scaffold(
       body: Container(
-        color: Colors.pink[400],
+        color: Colors.pink[300],
         child: Center(
           child: Padding(
             padding: const EdgeInsets.only(top: 80.0),
             child: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
-                    // flex: 1,
-                    child: Text(
-                  "Start using the app",
+                Text(
+                  "View Different charts",
                   style: onboardTextStyle,
-                )),
-
-                Expanded(
-                    // flex: 2,
-                    child: Lottie.asset('assets/animation_lmfm0vui.json')),
-
-                // Expanded(
-                //   flex: 1,
-                //   child: ElevatedButton(
-                //       onPressed: () {
-                //         Navigator.of(context).pushAndRemoveUntil(
-                //             MaterialPageRoute(
-                //                 builder: (context) => const MyRouter()),
-                //             (route) => false);
-                //       },
-                //       style: ElevatedButton.styleFrom(
-                //           minimumSize: const Size(400, 40)),
-                //       child: const Text("Get started")),
-                // )
+                ),
+                Expanded(child: Lottie.asset('assets/animation_lmfn58gp.json'))
               ],
             ),
           ),

@@ -44,10 +44,21 @@ class _MyOnboardingScreenState extends State<MyOnboardingScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 //skip
-                GestureDetector(
-                  child: const Text("Skip"),
-                  onTap: () => _controller.jumpToPage(3),
-                ),
+                onLastPage
+                    ? GestureDetector(
+                        child: const Chip(
+                          padding: EdgeInsets.all(8),
+                          label: Text("back"),
+                        ),
+                        onTap: () => _controller.jumpToPage(0),
+                      )
+                    : GestureDetector(
+                        child: const Chip(
+                          padding: EdgeInsets.all(8),
+                          label: Text("Skip"),
+                        ),
+                        onTap: () => _controller.jumpToPage(3),
+                      ),
                 SmoothPageIndicator(
                   effect: const ColorTransitionEffect(
                     dotColor: Colors.white,
@@ -65,12 +76,16 @@ class _MyOnboardingScreenState extends State<MyOnboardingScreen> {
                             MaterialPageRoute(
                                 builder: (context) => const MyRouter()),
                             (route) => false),
-                        child: const Text("Done"))
+                        child: const Chip(
+                          padding: EdgeInsets.all(8),
+                          label: Text("Done"),
+                        ))
                     : GestureDetector(
                         onTap: () => _controller.nextPage(
                             duration: const Duration(milliseconds: 500),
                             curve: Curves.easeIn),
-                        child: const Text("next"))
+                        child: const Chip(
+                            padding: EdgeInsets.all(8), label: Text("next")))
               ],
             ),
           )
